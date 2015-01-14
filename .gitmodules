@@ -1,0 +1,6 @@
+[submodule "devops/chef/cookbooks/mysql"]
+	path = devops/chef/cookbooks/mysql
+	url = https://github.com/opscode-cookbooks/mysql.git
+[submodule "devops/chef/cookbooks/yum-mysql-community"]
+	path = devops/chef/cookbooks/yum-mysql-community
+	url = https://github.com/chef-cookbooks/yum-mysql-community.git
