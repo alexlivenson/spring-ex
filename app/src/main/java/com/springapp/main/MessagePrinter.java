@@ -1,4 +1,4 @@
-package com.springapp.ConfigExamples;
+package com.springapp.main;
 
 /**
  * Created by alexlivenson on 1/13/15.

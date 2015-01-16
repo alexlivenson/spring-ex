@@ -4,15 +4,9 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <context:annotation-config/>
-       <bean id="helloWorld" class="com.springapp.ConfigExamples.HelloWorld">
+       <bean id="helloWorld" class="com.springapp.main.HelloWorld" />
 
-       </bean>
-
-       <bean id="messagePrinter" class="com.springapp.ConfigExamples.MessagePrinter">
+       <bean id="messagePrinter" class="com.springapp.main.MessagePrinter">
               <property name="message" value="Test Property"/>
        </bean>
-
-       <!--For setting up the database-->
-
 </beans>

@@ -1,5 +1,6 @@
-package com.springapp.ConfigExamples;
+package com.springapp.config;
 
+import com.springapp.main.MessagePrinter;
 import org.springframework.context.annotation.Bean;
 import sun.jvm.hotspot.HelloWorld;
 
