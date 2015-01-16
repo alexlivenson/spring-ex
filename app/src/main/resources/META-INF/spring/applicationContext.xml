@@ -4,9 +4,14 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <bean id="helloWorld" class="com.springapp.main.HelloWorld" />
+       <bean id="helloWorld" class="com.springapp.main.HelloWorld">
+              <property name="messagePrinter" value="Initial message printer value"/>
+       </bean>
 
        <bean id="messagePrinter" class="com.springapp.main.MessagePrinter">
               <property name="message" value="Test Property"/>
        </bean>
+
+       <!--Hibernate Configuration-->
+       <!--<bean id="dataSource" class="org.springframework."-->
 </beans>

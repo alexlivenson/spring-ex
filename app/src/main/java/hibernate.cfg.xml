@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
+<!--NOTE: This is not needed since we are using spring bean configuration-->
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">

@@ -13,7 +13,8 @@ public class MainConfigAppXml {
         HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
         MessagePrinter messagePrinter = ctx.getBean(MessagePrinter.class);
 
-        helloWorld.setMessage("Hello world!");
+        helloWorld.getMessage();
+        helloWorld.setMessage("Set Message printer values");
         helloWorld.getMessage();
 
         messagePrinter.printMessage();
