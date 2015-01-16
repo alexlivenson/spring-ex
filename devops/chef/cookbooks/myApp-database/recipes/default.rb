@@ -8,4 +8,10 @@
 #
 include_recipe 'mysql::server'
 
-cookbook_file "
+execute "create-database" do
+    cwd "#{node['myApp-database']['db_resource_path']}"
+    command "mysql -u root -p#{node['mysql']['server_root_password']} < test-db.sql"
+end
+
+execute "mysql -u root -p#{node['mysql']['server_root_password']} -e \"GRANT ALL ON #{node['myApp-database']['schema']}.* TO '#{node['myApp-database']['username']}'@'%' IDENTIFIED BY '#{node['myApp-database']['password']}' WITH GRANT OPTION\""
+execute "mysql -u root -p#{node['mysql']['server_root_password']} -e \"GRANT ALL PRIVILEGES ON #{node['myApp-database']['schema']}.* TO '#{node['myApp-database']['username']}'@'#{node['myApp-database']['acl_subnet']}' IDENTIFIED BY '#{node['myApp-database']['password']}' WITH GRANT OPTION\""

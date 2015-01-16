@@ -51,11 +51,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.memory = 1024
   end  #
 
+  source_path = "/vagrant/app"
+
   config.vm.provision "chef_solo" do |chef|
     chef.cookbooks_path = "devops/chef/cookbooks"
     chef.roles_path = "devops/chef/roles"
     chef.data_bags_path = "devops/chef/data_bags"
     chef.add_recipe "mysql::server"
+    chef.add_recipe "myApp-database"
     # chef.add_role "web"
   
     # You may also specify custom JSON attributes:
@@ -65,6 +68,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         'allow_remote_root' => mysql_allow_remote_root,
         'root_network_acl' => mysql_root_network_acl,
         'server_root_password' => mysql_root_password
+      },
+      'myApp-database' => {
+        'acl_subnet' => acl_subnet,
+        'source_path' => source_path,
+        'db_resource_path' => "#{source_path}/src/main/resources/db"
       }
     }
   end

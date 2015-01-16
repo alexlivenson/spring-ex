@@ -1,4 +1,4 @@
-package com.springapp.ConfigExampleAnnotation;
+package com.springapp.ConfigExamples;
 
 import org.springframework.context.annotation.Bean;
 import sun.jvm.hotspot.HelloWorld;

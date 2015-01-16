@@ -1,11 +1,11 @@
-package com.springapp.ConfigExampleAnnotation;
+package com.springapp.ConfigExamples;
 
 /**
  * Created by alexlivenson on 1/13/15.
  */
 public class MessagePrinter {
-    private String message;
 
+    private String message;
     public MessagePrinter(String message) {
         this.message = message;
     }

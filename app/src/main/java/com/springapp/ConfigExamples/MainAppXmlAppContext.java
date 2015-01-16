@@ -1,4 +1,4 @@
-package com.springapp.ConfigExampleAnnotation;
+package com.springapp.ConfigExamples;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,6 +16,7 @@ public class MainAppXmlAppContext {
 
         helloWorld.setMessage("Hello world!");
         helloWorld.getMessage();
+        helloWorld.getMessagePrinter().printMessage();
 
         messagePrinter.printMessage();
     }
