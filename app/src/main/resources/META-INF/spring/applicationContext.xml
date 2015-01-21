@@ -12,6 +12,32 @@
               <property name="message" value="Test Property"/>
        </bean>
 
-       <!--Hibernate Configuration-->
-       <!--<bean id="dataSource" class="org.springframework."-->
+       <!--Hibernate Configuration in Spring Container-->
+       <!--context:property-placeholder is used to scan files to get outside resources values-->
+       <context:property-placeholder location="classpath*:META-INF/spring/db.properties" />
+       <context:property-placeholder location="classpath*:META-INF/spring/hibernate.properties" />
+
+
+       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+              <property name="driverClassName" value="${database.driverClassName}"/>
+              <property name="url" value="${database.url}"/>
+              <property name="username" value="${database.username}"/>
+              <property name="password" value="${database.password}"/>
+       </bean>
+
+       <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+              <property name="dataSource" ref="dataSource"/>
+              <property name="annotatedClasses">
+                     <list>
+                            <value>com.springapp.mvc.model.Employee</value>
+                     </list>
+              </property>
+              <property name="hibernateProperties">
+                     <props>
+                            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                     </props>
+              </property>
+       </bean>
+       <!--TODO: Find out what transaction manager does-->
 </beans>
