@@ -1,8 +1,9 @@
 package com.springapp.config;
 
+import com.springapp.main.HelloWorld;
 import com.springapp.main.MessagePrinter;
 import org.springframework.context.annotation.Bean;
-import sun.jvm.hotspot.HelloWorld;
+
 
 /**
  * Created by alexlivenson on 1/12/15.
