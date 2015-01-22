@@ -5,6 +5,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,8 +13,9 @@ import java.util.List;
  * Created by alexlivenson on 1/20/15.
  */
 // "employeeDao" is name of the bean
-@Repository("employeeDao")
+@Repository
 public class EmployeeDAO extends AbstractDAO implements IEmployeeDAO {
+    //NOTE: Session is inherited from base class which allows the DAO to get info
     public void saveEmployee(Employee employee) {
         persist(employee);
     }

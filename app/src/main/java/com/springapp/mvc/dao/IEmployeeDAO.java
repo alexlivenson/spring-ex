@@ -1,6 +1,7 @@
 package com.springapp.mvc.dao;
 
 import com.springapp.mvc.model.Employee;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

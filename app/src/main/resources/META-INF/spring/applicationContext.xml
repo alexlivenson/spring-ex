@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--NOTE: In xsi:schemaLocation why need schema/context and schema/context.xsd -->
+<!--What does tx do?-->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+               http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+               http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+       <!--Looks for components (the beans in the IoC container)-->
+       <context:annotation-config/>
+       <context:component-scan base-package="com.springapp.mvc"/>
 
        <bean id="helloWorld" class="com.springapp.main.HelloWorld">
               <property name="messagePrinter" value="Initial message printer value"/>
@@ -12,12 +21,14 @@
               <property name="message" value="Test Property"/>
        </bean>
 
+
        <!--Hibernate Configuration in Spring Container-->
        <!--context:property-placeholder is used to scan files to get outside resources values-->
        <context:property-placeholder location="classpath*:META-INF/spring/db.properties" />
        <context:property-placeholder location="classpath*:META-INF/spring/hibernate.properties" />
 
 
+       <tx:annotation-driven transaction-manager="transactionManager" />
        <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
               <property name="driverClassName" value="${database.driverClassName}"/>
               <property name="url" value="${database.url}"/>
@@ -25,19 +36,29 @@
               <property name="password" value="${database.password}"/>
        </bean>
 
+       <!--This is an example of spring data integration-->
+       <!--session factory is specific for entities (model)-->
        <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
               <property name="dataSource" ref="dataSource"/>
-              <property name="annotatedClasses">
+              <property name="packagesToScan">
                      <list>
-                            <value>com.springapp.mvc.model.Employee</value>
+                            <value>com.springapp.mvc.model</value>
                      </list>
               </property>
+              <!--<property name="annotatedClasses">-->
+                     <!--<list>-->
+                            <!--<value>com.springapp.mvc.model.Employee</value>-->
+                     <!--</list>-->
+              <!--</property>-->
               <property name="hibernateProperties">
                      <props>
                             <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-                            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                            <prop key="hibernate.show_sql">true</prop>
                      </props>
               </property>
        </bean>
-       <!--TODO: Find out what transaction manager does-->
+       <!--works as a database transaction piece. Id=transactionManager => spring by convention works with it-->
+       <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+              <property name="sessionFactory" ref="sessionFactory" />
+       </bean>
 </beans>

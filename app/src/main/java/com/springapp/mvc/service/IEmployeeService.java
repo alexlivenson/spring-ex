@@ -8,7 +8,6 @@ import java.util.List;
 /**
  * Created by alexlivenson on 1/20/15.
  */
-@Service("employeeService")
 public interface IEmployeeService {
     void saveEmployee(Employee employee);
 
