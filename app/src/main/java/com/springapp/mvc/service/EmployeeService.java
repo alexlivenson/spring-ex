@@ -1,6 +1,5 @@
 package com.springapp.mvc.service;
 
-import com.springapp.mvc.dao.EmployeeDAO;
 import com.springapp.mvc.dao.IEmployeeDAO;
 import com.springapp.mvc.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import java.util.List;
 /**
  * Created by alexlivenson on 1/20/15.
  */
-//@Service("employeeService") // Another way to do bean injection
 @Service // Another way to do bean injection
 @Transactional // wiil automatically wire transactionManager by Convention
 public class EmployeeService implements IEmployeeService {
