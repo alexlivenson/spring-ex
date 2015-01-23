@@ -58,6 +58,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.roles_path = "devops/chef/roles"
     chef.data_bags_path = "devops/chef/data_bags"
     chef.add_recipe "mysql::server"
+    chef.add_recipe "java"
     chef.add_recipe "myApp-database"
     # chef.add_role "web"
   

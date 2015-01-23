@@ -1,6 +1,6 @@
-apply plugin: 'flyway'
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'flyway'
 
 version = '1.0'
 
@@ -41,13 +41,12 @@ dependencies {
     compile 'commons-dbcp:commons-dbcp:1.4'
 
     // This is need to to compile the tests
-    testCompile group: 'org.springframework', name: 'spring-test', version:'4.1.1.RELEASE'
+    testCompile group: springfm, name: 'spring-test', version: springRelease
+    testCompile group: springfm, name: 'spring-core', version: springRelease
+    testCompile group: springfm, name: 'spring-web', version: springRelease
+    testCompile group: springfm, name: 'spring-webmvc', version: springRelease
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    testCompile group: 'org.springframework', name: 'spring-core', version:'4.1.1.RELEASE'
-    testCompile group: 'org.springframework', name: 'spring-web', version:'4.1.1.RELEASE'
     testCompile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
-    testCompile group: 'org.springframework', name: 'spring-webmvc', version:'4.1.1.RELEASE'
-
     testCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.1'
 }
 
