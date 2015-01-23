@@ -10,7 +10,7 @@ include_recipe 'mysql::server'
 
 execute "create-database" do
     cwd "#{node['myApp-database']['db_resource_path']}"
-    command "mysql -u root -p#{node['mysql']['server_root_password']} < test-db.sql"
+    command "mysql -u root -p#{node['mysql']['server_root_password']} < create-db.sql"
 end
 
 execute "mysql -u root -p#{node['mysql']['server_root_password']} -e \"GRANT ALL ON #{node['myApp-database']['schema']}.* TO '#{node['myApp-database']['username']}'@'%' IDENTIFIED BY '#{node['myApp-database']['password']}' WITH GRANT OPTION\""

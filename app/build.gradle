@@ -1,3 +1,9 @@
+apply plugin: 'flyway'
+apply plugin: 'java'
+apply plugin: 'maven'
+
+version = '1.0'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -8,21 +14,13 @@ buildscript {
     }
 }
 
-apply plugin: 'flyway'
-apply plugin: 'java'
-apply plugin: 'maven'
-
 flyway {
     url = 'jdbc:mysql://localhost:3306'
     user = 'root'
     password = 'ilikerandompasswords'
-
     schemas = ['test_db']
-
 }
 
-sourceCompatibility = 1.6
-version = '1.0'
 
 repositories {
     mavenCentral()
@@ -30,6 +28,7 @@ repositories {
 
 String springfm = 'org.springframework'
 String springRelease = '4.1.1.RELEASE'
+
 dependencies {
     compile group: springfm, name:'spring-core', version:springRelease
     compile group: springfm, name:'spring-web', version:springRelease
@@ -50,4 +49,8 @@ dependencies {
     testCompile group: 'org.springframework', name: 'spring-webmvc', version:'4.1.1.RELEASE'
 
     testCompile group: 'javax.servlet.jsp', name: 'jsp-api', version:'2.1'
+}
+
+task sayHello << {
+    println("Hello!")
 }
