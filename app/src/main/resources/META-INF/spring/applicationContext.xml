@@ -45,11 +45,6 @@
                             <value>com.springapp.mvc.model</value>
                      </list>
               </property>
-              <!--<property name="annotatedClasses">-->
-                     <!--<list>-->
-                            <!--<value>com.springapp.mvc.model.Employee</value>-->
-                     <!--</list>-->
-              <!--</property>-->
               <property name="hibernateProperties">
                      <props>
                             <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>

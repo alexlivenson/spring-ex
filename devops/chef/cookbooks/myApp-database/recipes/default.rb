@@ -1,4 +1,4 @@
-#
+    #
 # Cookbook Name:: myApp-database
 # Recipe:: default
 #
@@ -15,7 +15,7 @@ end
 
 execute "flyway-migrations" do
     cwd "/vagrant/app"
-    command "sh gradlew flywayBaseline; sh gradlew flywayMigrate"
+    command "sh gradlew flywayInit; sh gradlew flywayMigrate"
 end
 
 execute "mysql -u root -p#{node['mysql']['server_root_password']} -e \"GRANT ALL ON #{node['myApp-database']['schema']}.* TO '#{node['myApp-database']['username']}'@'%' IDENTIFIED BY '#{node['myApp-database']['password']}' WITH GRANT OPTION\""
