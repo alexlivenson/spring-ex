@@ -17,7 +17,7 @@ public class EmployeeService implements IEmployeeService {
 
     // Spring injects by interface (Autowire by proxy). So using just EmployeeDAO would bomb spring. Need to use IEmployeeDOA. For specific
     // implementation of use qualifier @Qualifier -> name of bean
-    @Autowired
+
     private IEmployeeDAO dao;
 
     public void saveEmployee(Employee employee) {
