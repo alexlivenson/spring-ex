@@ -10,7 +10,7 @@ import java.util.List;
  */
 /*
  NOTE: Using anything that implements repository (Spring Data thing), you do not have to create an implementation of the
- interface. Spring creates a proxy and by convention knows implement your finder methods (i.e. findBy{class-property} or
+ interface. Spring creates a proxy and by convention knows how implement your finder methods (i.e. findBy{class-property} or
  findBy{class-prop1}And{class-prop2}.
  */
 public interface IOrganizationCustomRepository {

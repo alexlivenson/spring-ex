@@ -19,6 +19,8 @@ public class OrganizationIntegrationTest {
     // EnableJpaRepositories("com.springapp.mvc.dao") helps find the repo
     @Autowired
     IOrganizationRepository repository;
+
+    // Have to create a custom repository that will implement custom finders (or use @Query)
     @Autowired
     IOrganizationCustomRepository customRepository;
 
